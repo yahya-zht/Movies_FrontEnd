@@ -28,7 +28,7 @@ export default function DetailsFilm() {
       });
   }, []);
   return (
-    <div>
+    <div className="container mx-auto">
       <div className="mb-10">
         <div className="relative">
           <div className="h-60 flex contrast-50">

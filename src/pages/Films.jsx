@@ -44,7 +44,7 @@ export default function Films() {
   const currentFilms = filteredFilms.slice(indexOfFirstFilm, indexOfLastFilm);
 
   return (
-    <div>
+    <div className="container mx-auto">
       <div className="text-start my-4 flex flex-row justify-between items-center">
         <h1 className="text-black text-3xl font-bold">Trending Movies</h1>
         <div className="my-4">
