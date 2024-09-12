@@ -7,6 +7,7 @@ import Register from "../pages/Register";
 import ProtectedRoute from "../components/ProtectedRoute";
 import Dashboard from "../pages/Dashboard";
 import PublicRoute from "../components/PublicRoute";
+import EditFilm from "../pages/EditFilm";
 export default function RouterPage() {
   return (
     <Routes>
@@ -17,6 +18,14 @@ export default function RouterPage() {
         element={
           <ProtectedRoute>
             <Dashboard />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/edit/:id"
+        element={
+          <ProtectedRoute>
+            <EditFilm />
           </ProtectedRoute>
         }
       />
