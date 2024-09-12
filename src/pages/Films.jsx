@@ -17,10 +17,8 @@ export default function Films() {
   }, []);
   return (
     <div>
-      <div className="text-start my-4 border-b-4 border-black">
-        <h1 className="text-black text-3xl font-bold">
-          List of Trending Movies:
-        </h1>
+      <div className="text-start my-4">
+        <h1 className="text-black text-3xl font-bold">Trending Movies</h1>
       </div>
       <div className="flex flex-wrap justify-between">
         {films &&
