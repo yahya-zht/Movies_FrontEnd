@@ -1,16 +1,23 @@
+import axios from "axios";
 import React, { useState } from "react";
 export default function Register() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
       setError("Passwords do not match.");
     } else {
-      if (email && password) {
-        window.location.href = "/login";
+      if (name && email && password) {
+        try {
+          await axios.post("/api/register", { name, email, password });
+          window.location.href = "/login";
+        } catch (err) {
+          console.error("Registration failed:", err);
+        }
       } else {
         setError("Please fill in all fields.");
       }
@@ -23,6 +30,17 @@ export default function Register() {
         <h2 className="text-2xl font-bold mb-6 text-center">Register</h2>
         {error && <p className="text-red-500 text-center mb-4">{error}</p>}
         <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label className="block text-gray-700 mb-2">Name</label>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter your name"
+              required
+            />
+          </div>
           <div className="mb-4">
             <label className="block text-gray-700 mb-2">Email</label>
             <input

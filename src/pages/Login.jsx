@@ -1,19 +1,24 @@
-import React, { useState } from "react";
-
+import React, { useState, useContext } from "react";
+import AuthContext from "../context/AuthContext";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { login } = useContext(AuthContext);
   const [error, setError] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (email && password) {
-      window.location.href = "/dashboard";
+      try {
+        await login(email, password);
+        window.location.href = "/dashboard";
+      } catch (err) {
+        console.error("Login failed:", err);
+      }
     } else {
       setError("Please fill in all fields.");
     }
   };
-
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-md">
