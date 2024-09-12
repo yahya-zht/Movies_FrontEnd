@@ -8,11 +8,20 @@ import ProtectedRoute from "../components/ProtectedRoute";
 import Dashboard from "../pages/Dashboard";
 import PublicRoute from "../components/PublicRoute";
 import EditFilm from "../pages/EditFilm";
+import CreateFilm from "../pages/CreateFilm";
 export default function RouterPage() {
   return (
     <Routes>
       <Route path="/" element={<Films />} />
       <Route path="/details/:id" element={<DetailsFilm />} />
+      <Route
+        path="/create"
+        element={
+          <ProtectedRoute>
+            <CreateFilm />
+          </ProtectedRoute>
+        }
+      />
       <Route
         path="/dashboard"
         element={

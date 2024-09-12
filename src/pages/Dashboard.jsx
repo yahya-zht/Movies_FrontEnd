@@ -26,7 +26,7 @@ export default function Dashboard() {
         setMessageSuccess(null);
       }, 3000);
     }
-  }, []);
+  }, [location.state]);
 
   const fetchFilms = async () => {
     try {
