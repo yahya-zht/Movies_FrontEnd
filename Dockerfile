@@ -23,7 +23,7 @@ FROM nginx:alpine
 COPY --from=build /app/build /usr/share/nginx/html
 
 # Step 9: Expose the port on which the app will run
-EXPOSE 80
+EXPOSE 3000
 
 # Step 10: Define the default command to run when the container starts
 CMD ["nginx", "-g", "daemon off;"]
