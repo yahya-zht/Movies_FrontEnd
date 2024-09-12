@@ -9,6 +9,8 @@ import Dashboard from "../pages/Dashboard";
 import PublicRoute from "../components/PublicRoute";
 import EditFilm from "../pages/EditFilm";
 import CreateFilm from "../pages/CreateFilm";
+import UserDetails from "../pages/UserDetails";
+import UpdateProfile from "../pages/UpdateProfile";
 export default function RouterPage() {
   return (
     <Routes>
@@ -19,6 +21,22 @@ export default function RouterPage() {
         element={
           <ProtectedRoute>
             <CreateFilm />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/profile"
+        element={
+          <ProtectedRoute>
+            <UserDetails />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/edit"
+        element={
+          <ProtectedRoute>
+            <UpdateProfile />
           </ProtectedRoute>
         }
       />

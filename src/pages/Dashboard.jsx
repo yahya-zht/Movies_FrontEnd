@@ -20,7 +20,6 @@ export default function Dashboard() {
   useEffect(() => {
     fetchFilms();
     if (location.state && location.state.message) {
-      console.log("Location==>", location.state.message);
       setMessageSuccess(location.state.message);
       setTimeout(() => {
         setMessageSuccess(null);
