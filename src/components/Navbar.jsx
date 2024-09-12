@@ -1,9 +1,11 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 export default function Navbar() {
   const { auth, user, logout } = useContext(AuthContext);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const location = useLocation();
+  const Path = location.pathname;
   const handleLogout = () => {
     logout();
     window.location.href = "/login";
@@ -28,7 +30,7 @@ export default function Navbar() {
                   {user ? user.name : "User"}
                 </button>
                 {isDropdownOpen && (
-                  <div className="absolute right-0 mt-2 bg-white border border-gray-300 rounded shadow-lg">
+                  <div className="absolute right-0 mt-2 bg-white border border-gray-300 rounded shadow-lg z-20">
                     <button
                       onClick={() => (window.location.href = "/profile")}
                       className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
@@ -50,10 +52,16 @@ export default function Navbar() {
                   </div>
                 )}
               </>
+            ) : Path === "/login" ? (
+              <button
+                onClick={() => (window.location.href = "/register")}
+                className="text-white bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-md"
+              >
+                Register
+              </button>
             ) : (
               <button
                 onClick={() => (window.location.href = "/login")}
-                // className="text-white bg-blue-500 px-4 py-2 rounded"
                 className="text-white bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-md"
               >
                 Login
