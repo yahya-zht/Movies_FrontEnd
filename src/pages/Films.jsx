@@ -12,7 +12,7 @@ export default function Films() {
         setFilms(response.data);
       })
       .catch((error) => {
-        console.error("There was an error!", error);
+        console.error("There was an error Films!", error);
       });
   }, []);
   return (
@@ -27,6 +27,7 @@ export default function Films() {
           films.map((film, index) => (
             <CardFilm
               key={index}
+              id={film.id}
               img={film.poster_path}
               title={film.title}
               release_date={film.release_date}

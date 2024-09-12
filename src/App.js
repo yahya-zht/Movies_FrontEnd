@@ -1,10 +1,10 @@
 import "./App.css";
-import Films from "./pages/Films";
+import RouterPage from "./routes/Router";
 
 function App() {
   return (
     <div className="container mx-auto">
-      <Films />
+      <RouterPage />
     </div>
   );
 }
