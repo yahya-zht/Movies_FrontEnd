@@ -33,7 +33,7 @@ export default function Navbar() {
                   <div className="absolute right-0 mt-2 bg-white border border-gray-300 rounded shadow-lg z-20">
                     <button
                       onClick={() => (window.location.href = "/profile")}
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-start"
                     >
                       Profile
                     </button>
@@ -45,7 +45,7 @@ export default function Navbar() {
                     </button>
                     <button
                       onClick={handleLogout}
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                      className="block px-4 py-2 text-red-700 hover:bg-gray-100  w-full text-start"
                     >
                       Logout
                     </button>
