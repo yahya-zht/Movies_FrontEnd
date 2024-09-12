@@ -1,9 +1,10 @@
 import "./App.css";
+import Films from "./pages/Films";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello Word</h1>
+    <div className="container mx-auto">
+      <Films />
     </div>
   );
 }
