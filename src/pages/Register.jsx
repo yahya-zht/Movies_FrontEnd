@@ -9,17 +9,18 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      setError("Passwords do not match.");
+      setError("Les mots de passe ne correspondent pas.");
     } else {
       if (name && email && password) {
         try {
           await axios.post("/api/register", { name, email, password });
           window.location.href = "/login";
         } catch (err) {
+          setError("Cet e-mail a déjà été utilisé");
           console.error("Registration failed:", err);
         }
       } else {
-        setError("Please fill in all fields.");
+        setError("Veuillez remplir tous les champs.");
       }
     }
   };

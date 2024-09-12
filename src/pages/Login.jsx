@@ -13,10 +13,11 @@ export default function Login() {
         await login(email, password);
         window.location.href = "/dashboard";
       } catch (err) {
+        setError("Email ou mot de passe incorrect");
         console.error("Login failed:", err);
       }
     } else {
-      setError("Please fill in all fields.");
+      setError("Veuillez remplir tous les champs.");
     }
   };
   return (

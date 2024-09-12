@@ -11,7 +11,6 @@ export default function CreateFilm() {
     release_date: "",
     vote_average: "",
     overview: "",
-    genres: [],
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -134,22 +133,6 @@ export default function CreateFilm() {
             onChange={handleChange}
             className="w-full px-3 py-2 border border-gray-300 rounded"
             rows="4"
-          />
-        </div>
-        <div className="mb-4">
-          <label
-            className="block text-gray-700 font-bold mb-2"
-            htmlFor="genres"
-          >
-            Genres (comma-separated)
-          </label>
-          <input
-            type="text"
-            name="genres"
-            id="genres"
-            value={film.genres.join(",")}
-            onChange={handleChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded"
           />
         </div>
         <div className="flex justify-between">
